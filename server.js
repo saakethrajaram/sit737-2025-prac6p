@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files
+// Serve static files from current directory
 app.use(express.static(path.join(__dirname)));
 
 // Calculation logic
@@ -42,7 +42,7 @@ function calculate(operation, num1, num2) {
   }
 }
 
-// Routes
+// Supported routes
 const operations = ['add', 'subtract', 'multiply', 'divide', 'power', 'sqrt', 'modulo'];
 
 operations.forEach(op => {
@@ -63,7 +63,7 @@ operations.forEach(op => {
   });
 });
 
-// Default route
+// Serve the main HTML file on root
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
